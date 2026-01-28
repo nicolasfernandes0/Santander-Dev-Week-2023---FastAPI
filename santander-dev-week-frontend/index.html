@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santander Dev Week - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-university"></i>
+                <h1>Santander Dev Week</h1>
+            </div>
+            <div class="user-info">
+                <span id="userName">Carregando...</span>
+                <div class="balance">
+                    <i class="fas fa-wallet"></i>
+                    <span id="userBalance">R$ 0,00</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav>
+                    <ul>
+                        <li class="active" data-tab="dashboard">
+                            <i class="fas fa-home"></i> Dashboard
+                        </li>
+                        <li data-tab="users">
+                            <i class="fas fa-users"></i> Usuários
+                        </li>
+                        <li data-tab="transactions">
+                            <i class="fas fa-exchange-alt"></i> Transações
+                        </li>
+                        <li data-tab="features">
+                            <i class="fas fa-star"></i> Features
+                        </li>
+                        <li data-tab="news">
+                            <i class="fas fa-newspaper"></i> Notícias
+                        </li>
+                        <li data-tab="api">
+                            <i class="fas fa-code"></i> API Docs
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="content">
+                <!-- Dashboard -->
+                <section id="dashboard" class="tab-content active">
+                    <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+                    <div class="cards">
+                        <div class="card">
+                            <div class="card-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>Usuário Atual</h3>
+                            <p id="currentUser">Carregando...</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <h3>Limite do Cartão</h3>
+                            <p id="cardLimit">R$ 0,00</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">
+                                <i class="fas fa-piggy-bank"></i>
+                            </div>
+                            <h3>Conta Bancária</h3>
+                            <p id="accountNumber">0000-0</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Status API</h3>
+                            <p id="apiStatus">Verificando...</p>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <h3><i class="fas fa-bolt"></i> Ações Rápidas</h3>
+                        <div class="action-buttons">
+                            <button class="btn btn-primary" onclick="getUser(1)">
+                                <i class="fas fa-user"></i> Buscar Usuário 1
+                            </button>
+                            <button class="btn btn-success" onclick="getAllUsers()">
+                                <i class="fas fa-users"></i> Listar Todos
+                            </button>
+                            <button class="btn btn-info" onclick="testAPI()">
+                                <i class="fas fa-vial"></i> Testar API
+                            </button>
+                            <button class="btn btn-warning" onclick="createMockUser()">
+                                <i class="fas fa-plus"></i> Criar Usuário
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Users -->
+                <section id="users" class="tab-content">
+                    <h2><i class="fas fa-users"></i> Usuários do Sistema</h2>
+                    <div class="user-controls">
+                        <input type="number" id="userIdInput" placeholder="ID do Usuário" min="1">
+                        <button class="btn btn-primary" onclick="getUserById()">
+                            <i class="fas fa-search"></i> Buscar
+                        </button>
+                        <button class="btn btn-success" onclick="getAllUsers()">
+                            <i class="fas fa-sync"></i> Atualizar
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table id="usersTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Saldo</th>
+                                    <th>Cartão</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <!-- Dados via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="userDetails" class="user-details"></div>
+                </section>
+
+                <!-- Transactions -->
+                <section id="transactions" class="tab-content">
+                    <h2><i class="fas fa-exchange-alt"></i> Transações</h2>
+                    <div class="transaction-panel">
+                        <div class="transaction-form">
+                            <h3><i class="fas fa-money-bill-wave"></i> Operações</h3>
+                            
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> ID do Usuário:</label>
+                                <input type="number" id="transactionUser" value="1" min="1">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><i class="fas fa-arrow-down"></i> Depósito:</label>
+                                <input type="number" id="depositAmount" placeholder="R$ 0,00" step="0.01" min="0.01">
+                                <button class="btn btn-success" onclick="makeDeposit()">
+                                    <i class="fas fa-plus-circle"></i> Depositar
+                                </button>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><i class="fas fa-arrow-up"></i> Saque:</label>
+                                <input type="number" id="withdrawAmount" placeholder="R$ 0,00" step="0.01" min="0.01">
+                                <button class="btn btn-warning" onclick="makeWithdraw()">
+                                    <i class="fas fa-minus-circle"></i> Sacar
+                                </button>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><i class="fas fa-random"></i> Transferência:</label>
+                                <input type="number" id="transferToUser" placeholder="ID Destino" min="1">
+                                <input type="number" id="transferAmount" placeholder="R$ 0,00" step="0.01" min="0.01">
+                                <button class="btn btn-info" onclick="makeTransfer()">
+                                    <i class="fas fa-exchange-alt"></i> Transferir
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="transaction-history">
+                            <h3><i class="fas fa-history"></i> Transações Recentes</h3>
+                            <div id="transactionLog">
+                                <p>Nenhuma transação realizada.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Features -->
+                <section id="features" class="tab-content">
+                    <h2><i class="fas fa-star"></i> Features do App</h2>
+                    <div id="featuresList" class="features-grid">
+                        <!-- Features via JS -->
+                    </div>
+                </section>
+
+                <!-- News -->
+                <section id="news" class="tab-content">
+                    <h2><i class="fas fa-newspaper"></i> Notícias</h2>
+                    <div id="newsList" class="news-grid">
+                        <!-- News via JS -->
+                    </div>
+                </section>
+
+                <!-- API Documentation -->
+                <section id="api" class="tab-content">
+                    <h2><i class="fas fa-code"></i> Documentação da API</h2>
+                    <div class="api-info">
+                        <div class="endpoint-card">
+                            <h3><i class="fas fa-link"></i> Endpoints</h3>
+                            <ul>
+                                <li><strong>GET</strong> <code>/</code> - Página inicial</li>
+                                <li><strong>GET</strong> <code>/health</code> - Health check</li>
+                                <li><strong>GET</strong> <code>/users</code> - Listar usuários</li>
+                                <li><strong>GET</strong> <code>/users/{id}</code> - Buscar usuário</li>
+                                <li><strong>POST</strong> <code>/users</code> - Criar usuário</li>
+                                <li><strong>POST</strong> <code>/users/{id}/deposit</code> - Depósito</li>
+                                <li><strong>POST</strong> <code>/users/{id}/withdraw</code> - Saque</li>
+                                <li><strong>POST</strong> <code>/users/{id}/transfer</code> - Transferência</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="api-test">
+                            <h3><i class="fas fa-vial"></i> Testar Endpoints</h3>
+                            <div class="test-buttons">
+                                <button class="btn" onclick="fetchAPI('/')">Testar Raiz</button>
+                                <button class="btn" onclick="fetchAPI('/health')">Testar Health</button>
+                                <button class="btn" onclick="fetchAPI('/users')">Testar Usuários</button>
+                                <button class="btn" onclick="fetchAPI('/users/1')">Testar Usuário 1</button>
+                            </div>
+                            <div class="api-response">
+                                <h4>Resposta:</h4>
+                                <pre id="apiResponse">Clique em um botão para testar</pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Santander Dev Week 2023 - API FastAPI | Frontend Demo</p>
+            <p>API URL: <span id="apiUrl">http://localhost:8000</span></p>
+            <p class="status" id="connectionStatus">
+                <i class="fas fa-circle"></i> Conectando...
+            </p>
+        </footer>
+    </div>
+
+    <!-- Modal -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Detalhes do Usuário</h2>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
