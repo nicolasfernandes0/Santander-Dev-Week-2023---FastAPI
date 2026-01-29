@@ -1,0 +1,196 @@
+[
+  {
+    "name": "Devweekerson",
+    "email": "devweekerson@santander.com",
+    "id": 1,
+    "created_at": "2026-01-28T13:13:04.687775",
+    "account": {
+      "number": "01.097954-4",
+      "agency": "2030",
+      "balance": 424.12,
+      "limit": 1000.0
+    },
+    "card": {
+      "number": "**** **** **** 1111",
+      "limit": 2000.0
+    },
+    "features": [
+      {
+        "icon": "💰",
+        "description": "Pix"
+      },
+      {
+        "icon": "💸",
+        "description": "Transfer"
+      },
+      {
+        "icon": "🛒",
+        "description": "Pay"
+      }
+    ],
+    "news": [
+      {
+        "icon": "🎉",
+        "description": "New feature released!"
+      },
+      {
+        "icon": "📢",
+        "description": "System maintenance scheduled"
+      },
+      {
+        "id": 3,
+        "icon": "https://cdn-icons-png.flaticon.com/512/3135/3135679.png",
+        "description": "Olá Devweekerson, seu dinheiro pode trabalhar para você. Comece a investir!",
+        "date": "2026-01-29T11:46:06.543032"
+      }
+    ]
+  },
+  {
+    "name": "Maria Silva",
+    "email": "maria@email.com",
+    "id": 2,
+    "created_at": "2026-01-28T13:15:55.020014",
+    "account": {
+      "number": "12345-6",
+      "agency": "0001",
+      "balance": 1100.0,
+      "limit": 500.0
+    },
+    "card": {
+      "number": "**** **** **** 2222",
+      "limit": 1500.0
+    },
+    "features": [
+      {
+        "icon": "💰",
+        "description": "Investimentos"
+      }
+    ],
+    "news": [
+      {
+        "icon": "📈",
+        "description": "Mercado em alta"
+      },
+      {
+        "id": 2,
+        "icon": "https://cdn-icons-png.flaticon.com/512/3135/3135679.png",
+        "description": "Não deixe seu dinheiro parado, Maria Silva. Invista com sabedoria!",
+        "date": "2026-01-29T11:46:06.543239"
+      }
+    ]
+  },
+  {
+    "name": "Usuário 9430",
+    "email": "user329430@example.com",
+    "id": 3,
+    "created_at": "2026-01-28T13:36:11.007721",
+    "account": {
+      "number": "19329430-1",
+      "agency": "0001",
+      "balance": 1000.0,
+      "limit": 1000.0
+    },
+    "card": {
+      "number": "**** **** **** 9430",
+      "limit": 2000.0
+    },
+    "features": [
+      {
+        "icon": "💰",
+        "description": "Pix"
+      },
+      {
+        "icon": "💸",
+        "description": "Transfer"
+      }
+    ],
+    "news": [
+      {
+        "icon": "🎉",
+        "description": "Bem-vindo ao sistema!"
+      },
+      {
+        "id": 2,
+        "icon": "https://cdn-icons-png.flaticon.com/512/3135/3135679.png",
+        "description": "Não deixe seu dinheiro parado, Usuário 9430. Invista com sabedoria!",
+        "date": "2026-01-29T11:46:06.543390"
+      }
+    ]
+  },
+  {
+    "name": "Usuário 2566",
+    "email": "user332566@example.com",
+    "id": 4,
+    "created_at": "2026-01-28T13:36:11.007721",
+    "account": {
+      "number": "19332566-9",
+      "agency": "0001",
+      "balance": 1000.0,
+      "limit": 1000.0
+    },
+    "card": {
+      "number": "**** **** **** 2566",
+      "limit": 2000.0
+    },
+    "features": [
+      {
+        "icon": "💰",
+        "description": "Pix"
+      },
+      {
+        "icon": "💸",
+        "description": "Transfer"
+      }
+    ],
+    "news": [
+      {
+        "icon": "🎉",
+        "description": "Bem-vindo ao sistema!"
+      },
+      {
+        "id": 2,
+        "icon": "https://cdn-icons-png.flaticon.com/512/3135/3135679.png",
+        "description": "Usuário 2566, invista hoje para garantir seu futuro financeiro!",
+        "date": "2026-01-29T11:46:06.543492"
+      }
+    ]
+  },
+  {
+    "name": "Usuário 4046",
+    "email": "user334046@example.com",
+    "id": 5,
+    "created_at": "2026-01-28T13:36:11.007721",
+    "account": {
+      "number": "19334046-8",
+      "agency": "0001",
+      "balance": 1000.0,
+      "limit": 1000.0
+    },
+    "card": {
+      "number": "**** **** **** 4046",
+      "limit": 2000.0
+    },
+    "features": [
+      {
+        "icon": "💰",
+        "description": "Pix"
+      },
+      {
+        "icon": "💸",
+        "description": "Transfer"
+      }
+    ],
+    "news": [
+      {
+        "icon": "🎉",
+        "description": "Bem-vindo ao sistema!"
+      },
+      {
+        "id": 2,
+        "icon": "https://cdn-icons-png.flaticon.com/512/3135/3135679.png",
+        "description": "Não deixe seu dinheiro parado, Usuário 4046. Invista com sabedoria!",
+        "date": "2026-01-29T11:46:06.543585"
+      }
+    ]
+  }
+]
